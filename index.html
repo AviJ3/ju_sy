@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSPM University | Complete Syllabus Hub</title>
+<style>
+:root{--bg:#f3f6fc;--panel:#ffffff;--panel2:#eef2fb;--text:#17233d;--muted:#65738f;--line:#dce4f1;--accent:#5b5ce2;--cyan:#079b9b;--gold:#c77b16;--pink:#d64c7d;--green:#16865d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#e0e8ff 0,transparent 34%),radial-gradient(ellipse at 5% 35%,#e4f8f5 0,transparent 28%),var(--bg);color:var(--text);font:15px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+button,input{font:inherit}.app{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:100vh}
+.sidebar{height:100vh;position:sticky;top:0;overflow:auto;padding:25px 18px;background:#ffffff;border-right:1px solid var(--line);box-shadow:8px 0 28px #24365b0a}
+.brand{display:flex;gap:12px;align-items:center;margin:0 8px 26px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#6868ed,#18b6ad);display:grid;place-items:center;color:#ffffff;font-weight:900;font-size:20px}.brand strong{display:block;font-size:14px;letter-spacing:.08em}.brand span{font-size:11px;color:var(--muted)}
+.navlabel{font-size:10px;color:#8995ad;font-weight:800;letter-spacing:.16em;margin:22px 10px 8px}.nav button{width:100%;display:flex;align-items:center;gap:10px;border:0;background:transparent;color:#52617e;padding:10px;border-radius:10px;text-align:left;cursor:pointer;font-size:13px}.nav button:hover,.nav button.active{background:#edf0ff;color:#4546c8}.nav .num{margin-left:auto;color:#8995ad;font-size:11px}
+.sidefoot{margin:30px 8px 0;color:#8995ad;font-size:11px;border-top:1px solid var(--line);padding-top:16px}
+main{min-width:0;padding:34px clamp(18px,4vw,58px) 70px;max-width:1500px;width:100%;margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:32px}.eyebrow{color:#078d8c;font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase}.topbar h1{font-size:clamp(28px,4vw,44px);line-height:1.12;margin:7px 0 8px;letter-spacing:-.04em}.sub{color:var(--muted);margin:0}.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#ffffff;color:var(--text);padding:9px 13px;border-radius:10px;cursor:pointer}.btn:hover{border-color:var(--accent);background:#f1f2ff}
+.hero{background:linear-gradient(115deg,#4546bd,#6265e8 58%,#079b9b);border:1px solid #7779df;border-radius:22px;padding:25px 28px;margin-bottom:25px;display:grid;grid-template-columns:1.4fr .6fr;gap:20px;align-items:center}.hero h2{margin:0 0 8px;font-size:23px}.hero p{margin:0;color:#eef1ff;max-width:680px}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#ffffff20;border:1px solid #ffffff55;border-radius:13px;padding:12px}.stat b{font-size:23px;display:block}.stat span{font-size:11px;color:#edf0ff}
+.toolbar{display:flex;gap:10px;align-items:center;margin:20px 0 22px;flex-wrap:wrap}.search{flex:1;min-width:220px;position:relative}.search input{width:100%;background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 40px;color:var(--text);box-shadow:0 4px 14px #24365b08;outline:none}.search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #5b5ce21a}.search:before{content:"⌕";position:absolute;left:14px;top:6px;color:var(--muted);font-size:24px}.filter{background:#ffffff;border:1px solid var(--line);border-radius:11px;padding:11px;color:var(--text)}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;margin:32px 0 14px}.sectionhead h2{font-size:20px;margin:0}.sectionhead p{margin:0;color:var(--muted);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.course{background:linear-gradient(150deg,#ffffff,#f9fbff);border:1px solid var(--line);box-shadow:0 8px 24px #24365b0b;border-radius:17px;padding:18px;cursor:pointer;transition:.2s;position:relative;overflow:hidden}.course:hover{transform:translateY(-3px);border-color:#7779df;box-shadow:0 14px 30px #4654a51c}.course:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-55px;top:-55px;background:var(--tint);opacity:.08}.course-top{display:flex;justify-content:space-between;gap:10px}.tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--tint);font-weight:800}.course h3{font-size:18px;line-height:1.3;margin:8px 0 5px}.meta{font-size:12px;color:var(--muted)}.course-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:12px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}.open{color:var(--text);font-weight:700}
+.details{margin-top:30px}.detailhead{padding:23px;border-radius:18px;background:linear-gradient(120deg,#4546bd,#078f91);border:1px solid #7779df;margin-bottom:18px}.detailhead .tag{color:#d8ffff}.detailhead h2{font-size:27px;margin:5px 0}.detailmeta{color:#eef2ff;font-size:13px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.chip{font-size:11px;padding:5px 9px;border-radius:30px;background:#ffffff24;color:#ffffff;border:1px solid #ffffff40}
+.tabs{display:flex;gap:7px;border-bottom:1px solid var(--line);margin:20px 0 16px;overflow:auto}.tab{background:transparent;border:0;color:var(--muted);padding:10px 13px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent}.tab.active{color:#4e50cf;border-color:#4e50cf}
+.contentbox{background:#ffffff;border:1px solid var(--line);box-shadow:0 6px 20px #24365b08;border-radius:15px;padding:19px;margin:12px 0}.contentbox h3{margin:0 0 12px;font-size:16px}.unit{background:#ffffff;border:1px solid var(--line);border-radius:13px;margin:10px 0;overflow:hidden}.unit summary{padding:14px 16px;cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px}.unit summary::-webkit-details-marker{display:none}.unit summary:after{content:"＋";margin-left:auto;color:var(--cyan);font-size:18px}.unit[open] summary:after{content:"−"}.unitname{font-weight:750}.hours{margin-left:auto;color:var(--muted);font-size:11px;margin-right:12px}.unitbody{padding:0 18px 16px;color:#465570}.unitbody ul{margin:0;padding-left:20px}.unitbody li{margin:6px 0}.topiclist{list-style:disc;padding-left:22px!important}.topiclist>li{padding-left:2px}.topiclist .checkrow{display:inline-flex;margin:2px 0}.topiclist .checkrow input{flex:0 0 auto}.checkrow{display:flex;gap:9px;align-items:flex-start;margin:8px 0;color:#c6d1e5}.checkrow input{accent-color:var(--cyan);margin-top:5px}.checkrow:has(input:checked){color:#8995ad;text-decoration:line-through}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}.muted{color:var(--muted)}.empty{display:none;padding:35px;text-align:center;color:var(--muted);border:1px dashed #b8c4d9;border-radius:15px}
+.footer{border-top:1px solid var(--line);margin-top:55px;padding-top:18px;color:#8995ad;font-size:11px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hidden{display:none!important}
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{height:auto;position:relative;padding:14px 16px;border-right:0;border-bottom:1px solid var(--line)}.brand{margin-bottom:10px}.nav{display:flex;overflow:auto;gap:5px}.navlabel,.sidefoot{display:none}.nav button{white-space:nowrap;width:auto}.nav .num{display:none}main{padding-top:24px}.hero{grid-template-columns:1fr}.stats{max-width:420px}}
+@media(max-width:650px){.grid,.cols{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}.hero{padding:20px}.sectionhead{align-items:flex-start;flex-direction:column;gap:4px}}
+@media print{body{background:white;color:#111}.sidebar,.topbar .actions,.toolbar,.tabs,.btn{display:none!important}.app{display:block}main{padding:0;max-width:none}.course,.contentbox,.unit,.detailhead{break-inside:avoid;background:white;color:#111;border:1px solid #bbb}.muted,.meta,.detailmeta,.unitbody{color:#333}.hero{background:#eee;color:#111}.hero p{color:#333}.unitbody{display:block!important}}
+
+/* Apple / Minimal Premium visual refresh */
+:root{
+ --bg:#f5f5f7;--panel:#ffffff;--panel2:#f0f0f2;--text:#1d1d1f;
+ --muted:#6e6e73;--line:#e5e5e7;--accent:#0071e3;--cyan:#2997ff;
+ --gold:#bf8b35;--pink:#bf5a78;--green:#248a55
+}
+body{background:#f5f5f7;color:#1d1d1f;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;letter-spacing:-.01em}
+.sidebar{background:rgba(255,255,255,.88);box-shadow:none;border-right:1px solid #e8e8ed;backdrop-filter:blur(18px)}
+.logo{background:#1d1d1f;border-radius:13px;color:#fff}
+.brand strong{letter-spacing:.12em}
+.nav button{color:#515154;border-radius:9px}
+.nav button:hover,.nav button.active{background:#eaf3ff;color:#0066cc}
+.nav .num{color:#86868b}
+.navlabel,.sidefoot{color:#86868b}
+main{max-width:1540px}
+.eyebrow{color:#0071e3;letter-spacing:.13em}
+.topbar h1{font-size:clamp(32px,4.4vw,49px);font-weight:700;letter-spacing:-.055em}
+.sub{color:#6e6e73}
+.btn{background:#fff;border-color:#d2d2d7;color:#1d1d1f;border-radius:999px;padding:9px 16px;transition:.18s}
+.btn:hover{background:#f5f5f7;border-color:#86868b}
+.hero{background:#fff;color:#1d1d1f;border:1px solid #e5e5e7;border-radius:24px;padding:30px 32px;box-shadow:0 8px 30px #00000008}
+.hero h2{font-size:25px;letter-spacing:-.035em}
+.hero p{color:#6e6e73}
+.stat{background:#f5f5f7;border:1px solid #ededf0;border-radius:16px;color:#1d1d1f}
+.stat span{color:#6e6e73}
+.stat small{color:#248a55!important}
+.search input,.filter{background:#fff;border:1px solid #d2d2d7;border-radius:12px;box-shadow:none;color:#1d1d1f}
+.search input:focus{border-color:#0071e3;box-shadow:0 0 0 4px #0071e31a}
+.sectionhead h2{letter-spacing:-.025em}
+.course{background:#fff;border:1px solid #e5e5e7;border-radius:19px;box-shadow:0 3px 14px #00000006;transition:transform .2s,border-color .2s,box-shadow .2s}
+.course:hover{transform:translateY(-2px);border-color:#b8d8fb;box-shadow:0 10px 28px #0000000c}
+.course:after{display:none}
+.tag{letter-spacing:.09em}
+.course h3{letter-spacing:-.025em}
+.course-bottom{border-color:#ededf0}
+.open{color:#0071e3}
+.detailhead{background:#fff;color:#1d1d1f;border:1px solid #e5e5e7;border-radius:20px;box-shadow:0 4px 18px #00000006}
+.detailhead .tag{color:#0071e3}
+.detailmeta{color:#6e6e73}
+.chip{background:#f5f5f7;color:#515154;border:1px solid #e5e5e7}
+.tabs{border-color:#e5e5e7}
+.tab.active{color:#0071e3;border-color:#0071e3}
+.contentbox,.unit{background:#fff;border-color:#e5e5e7;box-shadow:0 3px 12px #00000004;border-radius:15px}
+.unit summary:after{color:#0071e3}
+.unitbody{color:#515154}
+.checkrow{color:#515154}
+.checkrow input{accent-color:#0071e3}
+.checkrow:has(input:checked){color:#86868b}
+.empty{border-color:#d2d2d7}
+.footer{border-color:#e5e5e7;color:#86868b}
+@media(max-width:900px){.sidebar{background:rgba(255,255,255,.96)}}
+@media print{.hero,.detailhead{box-shadow:none}}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+ <div class="brand"><div class="logo">J</div><div><strong>SYLLABUS HUB</strong><span>JSPM UNIVERSITY · CSE</span></div></div>
+ <div class="navlabel">YOUR SUBJECTS</div>
+ <nav class="nav" id="nav"></nav>
+ <div class="sidefoot">Complete syllabus dashboard<br>Unit-wise topics · Outcomes · Lab work</div>
+</aside>
+<main>
+ <header class="topbar">
+  <div><div class="eyebrow">Academic workspace / syllabus library</div><h1>Complete Syllabus Hub</h1><p class="sub">Theory and practical subjects, organized into clear topic sections without numbered or lettered point labels.</p></div>
+  <div class="actions"><button class="btn" onclick="window.print()">⇩ Export / Print</button><button class="btn" onclick="resetProgress()">Reset progress</button></div>
+ </header>
+ <section class="hero">
+  <div><div class="eyebrow">One place for every subject</div><h2>Plan your semester. Track every unit.</h2><p>Browse all eight uploaded syllabi, search topics across subjects, expand unit details, and mark topics as completed. Your progress is saved locally in this browser.</p></div>
+  <div class="stats"><div class="stat"><b id="courseCount">8</b><span>Subjects</span></div><div class="stat"><b id="unitCount">48</b><span>Units / practical groups</span></div><div class="stat"><b id="topicCount">—</b><span>Topic sections</span></div><div class="stat"><b id="progressCount">0%</b><span>Progress completed</span><small id="saveStatus" style="display:block;margin-top:5px;color:#e8fff8;font-size:10px">● Progress saved locally</small></div></div>
+ </section>
+ <div class="toolbar">
+  <div class="search"><input id="search" placeholder="Search subjects, units, topics, outcomes..." autocomplete="off"></div>
+  <select class="filter" id="typeFilter"><option value="all">All course types</option><option value="Theory">Theory</option><option value="Practical">Practical</option></select>
+  <select class="filter" id="semesterFilter"><option value="all">All semesters</option><option value="VI">Semester VI</option><option value="VII">Semester VII</option><option value="VIII">Semester VIII</option><option value="SY">S.Y. B.Tech</option></select>
+ </div>
+ <div class="sectionhead"><div><h2>Theory subjects</h2><p>Core theory courses and complete unit-wise contents.</p></div><p id="theoryCount">5 subjects</p></div>
+ <section class="grid" id="theoryGrid"></section>
+ <div class="sectionhead"><div><h2>Practical subjects</h2><p>Laboratory courses, experiments and project work.</p></div><p id="practicalCount">3 subjects</p></div>
+ <section class="grid" id="practicalGrid"></section>
+ <div class="empty" id="empty">No matching subjects or topics. Try another search.</div>
+ <section class="details hidden" id="details"></section>
+ <footer class="footer"><span>Source: syllabus PDFs uploaded in this conversation.</span><span>Progress is stored in this browser only · Not an official university portal</span></footer>
+</main>
+</div>
+<script>
+const courses = [
+{id:"toc",name:"Theory of Computation",short:"TOC",type:"Theory",semester:"VI",code:"231GCSB102",credits:"3.5",scheme:"Theory: 100 · Lecture: 2 hrs · Experiential Learning: 2",prereq:"Discrete Mathematics",color:"#8da8ff",
+objectives:["Introduce automata theory, formal languages, and computability.","Explore finite automata, pushdown automata, and Turing machines.","Understand the relationship between languages and machines and classify languages by computational complexity.","Learn grammar, PDA, and Turing Machine for language processing and algorithm design.","Learn computability and complexity theory for algorithm design.","Design and analyse formal systems and algorithms for computer-science problem solving."],
+outcomes:["Understand formal language, translation logic, alphabets and language representation; design Finite Automata and variants.","Construct regular expressions for regular languages and understand the pumping lemma for RE.","Design Context Free Grammars and simplify grammar.","Construct Pushdown Automata for Context Free Languages.","Design Turing Machines for theoretical computer-science requirements.","Understand, classify and analyse problem classes, including NP-completeness."],
+units:[
+["I","Introduction to Finite Automata","6 Hours",["Strings, alphabets and languages","Graphs and trees","Finite Automata (FA): informal picture, Finite State Machine (FSM), language accepted by FA, regular language","FA without output: Deterministic and Nondeterministic FA (DFA and NFA)","Epsilon-NFA and inter-conversion","Minimization of DFAs"]],
+["II","Regular Expressions (RE) and FA without Output","5 Hours",["FA with output: Moore and Mealy machines — definitions, models and inter-conversion","Introduction to regular expressions","Operators and precedence of RE operators","Algebraic laws for RE","Converting language to regular expressions; equivalence of two REs","Conversions: RE to NFA and DFA"]],
+["III","Context Free Grammar (CFG) and Context Free Language (CFL)","5 Hours",["Basic elements and formal definition of grammar / CFG","Sentential form, derivation and derivation tree / parse tree","Context Free Language (CFL)","Ambiguous grammar and writing grammar for a language","Simplification of CFG: eliminating epsilon-productions, unit productions and useless productions","Pumping Lemma for CFG"]],
+["IV","Pushdown Automata (PDA)","5 Hours",["Introduction and formal definition of PDA","Equivalence of acceptance by final state and empty stack","Non-deterministic PDA (NPDA)","PDA and Context Free Language","Equivalence of PDA and CFG; PDA vs CFLs","Deterministic CFLs"]],
+["V","Turing Machines (TM)","5 Hours",["Turing Machine model and formal definition","Language acceptability by Turing Machines","Design and description of Turing Machines","Halting Problem of TM"]],
+["VI","Computability and Complexity Theory","4 Hours",["Decidable and undecidable problems","Reducibility; undecidable problems that are recursively enumerable","A simple undecidable problem","Class P and examples of problems in P","Class NP and examples of problems in NP","P versus NP; NP-completeness and NP-hard problems"]]
+]},
+{id:"cloud",name:"Cloud Technology",short:"CT",type:"Theory",semester:"VII",code:"231GCSB42",credits:"3.5",scheme:"Theory: 100 Marks (ESE) · Lecture: 3 hrs/week · Experiential Learning: 2",prereq:"Computer Networks; IT Infrastructure Landscape",color:"#55d6d0",
+objectives:["Understand cloud computing concepts, architectures, service and deployment models, and application platforms.","Explain cloud infrastructure, data centres and virtualization for resource optimization and service delivery.","Analyse Big Data frameworks and Hadoop ecosystem components.","Apply cloud security, governance, compliance, identity management and disaster recovery.","Explore cloud management, containers and emerging cloud trends.","Evaluate AWS, Google Cloud Platform, Microsoft Azure and IBM Cloud."],
+outcomes:["Describe cloud concepts, service/deployment models, reference architectures and providers.","Analyse infrastructure, virtualization and data-centre architectures.","Implement Big Data processing using Hadoop tools and distributed storage.","Assess cloud security and implement controls, governance, compliance and disaster recovery.","Apply cloud management, containers, serverless, AI/ML and IoT technologies.","Compare and use AWS, GCP, Azure and IBM Cloud to design and deploy cloud applications."],
+units:[
+["I","Introduction to Cloud Computing","7 Hours",["Cluster, grid, parallel and distributed computing","Definition, key characteristics, benefits, risks and economics of cloud computing","Cloud service models and deployment models","NIST Cloud Computing Model","IBM Cloud Computing Reference Architecture","IaaS, PaaS and SaaS","Overview of Amazon EC2, Google App Engine and Salesforce.com"]],
+["II","Cloud Infrastructure and Virtualization","7 Hours",["Historical perspective of data centres","Data-centre components: IT equipment and facilities","Design considerations: requirements, power, efficiency and redundancy","Power calculations, PUE and challenges in cloud data centres","Cloud management and cloud software deployment considerations","Virtualization, hypervisors, Type-I and Type-II hypervisors, virtual machines","Types, advantages and disadvantages of virtualization","Enterprise applications: server, desktop, application, storage and network virtualization"]],
+["III","Cloud Big Data Analytics Framework","8 Hours",["Big Data: types, sources, challenges and types of analytics","Hadoop history, definition and architecture","HDFS, MapReduce, YARN and Hadoop Common","Cloud file systems: GFS and HDFS; Bigtable and HBase","Parallel computing and MapReduce model","Overview of NoSQL databases","Hadoop technology stack: Hive, Pig, Oozie, Flume, Sqoop and Spark"]],
+["IV","Cloud Security, Governance and Compliance","7 Hours",["Security and cloud security; CIA Triad","Cloud security challenges","Infrastructure security: host, network and application level","Data security and storage; security management in the cloud","Data privacy, data lifecycle and key privacy concerns","Disaster recovery","Identity and Access Management (IAM)","Security standards and compliance: ISO 27016, ISO 27017, ISO 27001 and CSA STAR"]],
+["V","Cloud Management and Emerging Trends","8 Hours",["Cloud resource management and monitoring","Cloud billing and cost optimization","Containerization: Docker and Kubernetes basics","AI/ML in cloud","Edge computing and serverless computing","Big Data service platforms; cloud security and resilience","IoT and cloud; blockchain and cloud integration","Industry case studies"]],
+["VI","Cloud Computing Application Platforms","8 Hours",["AWS core services: compute, storage, databases, networking, analytics and applications","GCP core services: compute, storage, App Engine, BigQuery, Vertex AI and applications","Microsoft Azure core services: Azure Virtual Machines, App Service, AKS, Azure Storage and Synapse Analytics","IBM Cloud: overview, core services and applications"]]
+]},
+{id:"rmmt",name:"Research Methodology, Methods and Techniques",short:"RMMT",type:"Theory",semester:"VII",code:"230IRMB02_7",credits:"3",scheme:"Theory: 100 Marks · Lecture: 3 hrs/week",prereq:"Basic statistics; Excel / Google Sheets; project or lab documentation; technical communication",color:"#ffc66d",
+objectives:["Introduce principles and practices of scientific and applied research.","Develop competence in formulating research problems and selecting methodologies.","Familiarize students with data collection techniques and basic statistical tools.","Cultivate ethical research practices and technical report writing."],
+outcomes:["Define and distinguish research concepts, types and methodologies in engineering.","Formulate research problems and hypotheses; select research designs.","Use appropriate data collection methods and tools.","Apply and justify sampling techniques.","Conduct preliminary spreadsheet-based data analysis and present graphical findings.","Structure technical research reports with academic integrity and referencing."],
+units:[
+["I","Introduction to Research","7 Hours",["Definition, objectives, scope and significance of research in engineering","Characteristics of scientific research; limitations and ethical considerations","Classification: pure, applied, descriptive, analytical, experimental, quantitative and qualitative research","Research process: problem identification, literature review, objectives, design, data collection, analysis, interpretation and reporting"]],
+["II","Research Design and Problem Formulation","8 Hours",["Identification and formulation of research problems","Research objectives and research questions","Hypothesis: concepts, types and characteristics of a good hypothesis","Formulation of null and alternative hypotheses","Research designs: exploratory, descriptive, experimental, cross-sectional and longitudinal","Reasoning approaches: deductive, inductive and abductive"]],
+["III","Data Collection and Instrumentation","8 Hours",["Primary and secondary data; types and sources","Questionnaires, interviews, observations and online surveys","Construction and characteristics of data-collection instruments","Reliability and validity in instrument design","Digital tools: Google Forms, Microsoft Forms and SurveyMonkey"]],
+["IV","Sampling Techniques","8 Hours",["Population, sampling frame, sample and sample size","Probability sampling: simple random, systematic, stratified and cluster","Non-probability sampling: convenience, judgmental, snowball and quota","Characteristics of a good sample","Sampling and non-sampling errors; practical considerations in sample selection"]],
+["V","Data Analysis and Presentation","7 Hours",["Data preparation: Editing, Coding and Tabulation","Descriptive statistics: Measures of central tendency; Measures of dispersion","Graphical representation: Bar charts; Pie charts; Histograms; Line graphs; Scatter plots","Spreadsheet-based analysis using Microsoft Excel or Google Sheets","Basic interpretation of correlation and regression outputs","Conceptual understanding of statistical significance and confidence levels"]],
+["VI","Report Writing and Research Ethics","7 Hours",["Research report structure: abstract, introduction, methodology, results and conclusion","Presentation of findings and visuals in technical documentation","Citation and referencing styles: IEEE and APA","Reference management software: Mendeley and Zotero","Plagiarism, authorship, copyright and research misconduct"]]
+]},
+{id:"isamg",name:"Information Security Audit, Monitoring and Governance",short:"ISAMG",type:"Theory",semester:"VIII",code:"230GCSB67_08",credits:"3",scheme:"Theory: 100 · Lecture: 3 hrs/week",prereq:"Information security basics; networking, operating systems and IT infrastructure; risk, threats and basic controls",color:"#ff8eae",
+objectives:["Understand governance, risk and compliance (GRC) in security.","Learn standards such as ISO 27001 and PCI-DSS.","Develop security auditing and risk-assessment skills.","Understand cyber security governance and policies.","Explore security operations and monitoring technologies."],
+outcomes:["Understand GRC concepts and security–business alignment.","Apply ISO 27001 and perform basic risk assessment.","Explain regulatory and industry security standards.","Perform security audits and analyse audit findings.","Demonstrate security governance and policy implementation.","Explain core cyber security operations and technologies."],
+units:[
+["I","Governance, Risk and Compliance (GRC) Fundamentals","8 Hours",["Introduction to governance, risk and compliance","Business–information security alignment; methodology for aligning security with business requirements","Information security as a business enabler","Roles and responsibilities of information security professionals; organizational structure of security teams","Global security standards; ISO 27001, NIST and COBIT frameworks","Compliance requirements and importance of GRC","GRC tools; Eramba basics: organization setup, business units, legal constraints and third parties"]],
+["II","ISO 27001 Implementation and Risk Management","8 Hours",["Introduction to ISO 27001:2013; structure, clauses and mandatory requirements","Annex A control objectives and controls; Statement of Applicability (SOA)","Clause 6: risk assessment; Clause 8: operations","Information security risk-assessment steps and risk-treatment methodology","Development of an Information Security Management System (ISMS)","Business Impact Analysis (BIA); asset identification and classification; asset risk analysis","Risk reports, risk exceptions and third-party risks","Eramba asset-management and risk-management modules"]],
+["III","Regulatory Compliance and Industry Standards","7 Hours",["Introduction to regulatory compliance","Implementation of PCI-DSS requirements and payment security controls","Sector-specific security requirements in BFSI, telecom and healthcare","Overview of the Information Technology Act of India","Creation and management of security policies; policy lifecycle and exceptions","Business Continuity Planning (BCP)","Compliance documentation techniques","Eramba controls catalogue, security-controls report, and policy creation/review in GRC tools"]],
+["IV","Information Security Audits and Assurance","7 Hours",["Security assurance; audit fundamentals and concepts","Audit methodology: planning, execution and reporting","Business skills required for auditors; audit checklists","Audit types: compliance, cyber security, network security, web application and mobile application audits","Lines of defence; third-party audits and vendor security assessments","Documentation and evidence collection","Eramba compliance management: reports, exceptions and packages","Dashboards and audit case studies"]],
+["V","Cyber Security Governance and Risk Controls","8 Hours",["Cyber security roles and responsibilities; security goals and objectives","Developing cyber security policies, standards and procedures","Legal and regulatory requirements relevant to cyber security","Information asset classification and cyber security insurance concepts","Cyber security risk-assessment techniques","Security awareness training and education","Social-media security risks and controls","Third-party assessment, service-provider evaluation and supply-chain risk management (SCRM)","Performance measurement using KPIs and KRIs; organizational governance structures"]],
+["VI","Cyber Security Operations and Technology","7 Hours",["Threat and vulnerability management; IAM","Configuration and asset management; change and patch management","Network security fundamentals; incident management and response","Endpoint protection; application security basics","Data backup and disaster recovery; cryptography fundamentals","Firewall technologies; Security Incident and Event Management (SIEM)","Wireless, cloud, mobile and IoT security","Virtualization, container and industrial control systems (ICS) security","Advanced security-audit techniques using modern tools"]]
+]},
+{id:"industry",name:"Industry 4.0 and Industrial IoT",short:"I4.0 + IIoT",type:"Theory",semester:"VI",code:"230GMEB61_06",credits:"2",scheme:"Theory: 100 Marks · Lecture: 2 hrs/week",prereq:"Not specified",color:"#79dba7",
+objectives:["Understand Industry 4.0 and IIoT technologies.","Develop knowledge for designing Industry 4.0 systems for varied applications.","Learn design and analysis of Industry 4.0 systems for manufacturing and automotive applications."],
+outcomes:["Demonstrate understanding of Industry 4.0 and IIoT technologies.","Understand cyber-physical systems and emerging applications.","Apply AR/VR and robotic systems for applications.","Understand IIoT models and architecture.","Analyse WBAN networks and protocols.","Understand and analyse Big Data and design a simple smart factory."],
+units:[
+["I","Introduction","5 Hours",["Sensing and actuation; communication and networking","Industry 4.0 building blocks","Globalization and emerging issues","Industrial Revolution phases and the Fourth Revolution","LEAN Production Systems","Smart and connected business perspective; smart factories","Technology roadmap"]],
+["II","Industry 4.0 Technologies — Part 01","5 Hours",["Additive manufacturing","Cyber Physical Systems and next-generation sensors","Collaborative platform","Product Lifecycle Management (PLM)"]],
+["III","Industry 4.0 Technologies — Part 02","5 Hours",["Augmented Reality and Virtual Reality","Artificial Intelligence","Big Data and advanced analysis","Industrial robotics: pick-and-place, assembly and welding operations","Cybersecurity in Industry 4.0"]],
+["IV","Basics of Industrial IoT","5 Hours",["Industrial processes","Industrial sensing and actuation","Industrial Internet systems","Business model and reference architecture","IIoT layers: sensing, processing, communication and networking"]],
+["V","Wireless Body Area Networks","5 Hours",["Wireless Body Area Networks (WBAN)","Node localization and data aggregation","Localization algorithms and ranging schemes","Routing, routing metrics and protocols"]],
+["VI","Big Data Analytics and Industry 4.0 Case Studies","5 Hours",["Big Data analytics and Software Defined Networks","Data management with Hadoop","IIoT security and fog computing; fog computing in IIoT","IIoT application domains: factories and assembly lines","Inventory management and quality control","Plant safety and security, including AR/VR safety applications","Applications of UAVs in industries; case studies"]]
+]},
+{id:"ppl",name:"Python Programming Lab",short:"Python Lab",type:"Practical",semester:"VII",code:"230GAIB88_07",credits:"1",scheme:"Practical: 50 Marks · Practical: 2 hrs · Oral: Nil",prereq:"Not specified",color:"#b69cff",
+objectives:["Write Python programs using variables, operators, input/output and decision-making.","Use loops, functions, strings, lists, tuples, dictionaries and sets.","Implement file handling, exception handling and modular programming.","Develop object-oriented programs using classes, inheritance, polymorphism and encapsulation.","Use Python libraries for data analysis, visualization or automation; test and debug programs."],
+outcomes:["Understand Python syntax, data types, variables, operators and control structures.","Develop programs using functions, modules, file handling and exception handling.","Apply OOP concepts in Python.","Use Python libraries and packages for data processing and visualization.","Design, develop, test and debug Python applications."],
+groups:[
+["A","Compulsory Experiments",["1(a). Demonstrate fundamental Python data types: int, float, complex, bool and string.","1(b). Input and display a student's name, age and course.","2(a). Demonstrate arithmetic, relational, assignment, logical, bitwise, ternary, membership and identity operators.","2(b). Count character frequency in a given file.","3(a). Use for/while loops to display prime numbers up to n and print the nth multiplication table.","3(b). Print each line of a file in reverse order.","4(a). Copy contents from one file to another.","4(b). Read three subject marks and display pass/fail students using class and object.","5. Design a text-processing and pattern-matching log-file analyzer to extract keywords, count word frequencies, detect errors and generate summary reports from large text files."]],
+["B","Experiments",["6. Student Performance Analytics System: calculate grades, rank students, generate subject-wise statistics and export results to CSV.","7. Demonstrate lambda functions with a suitable example.","8. Check whether a given string is an RGM language identifier.","9. Design a Library Management System using classes, inheritance, polymorphism and persistent storage for book issue/return operations."]],
+["C","Mini Projects / Experiments",["10. Student Record Management System using OOP, exception handling, file handling and SQLite/MySQL connectivity.","11. Banking/ATM Management System with authentication, balance enquiry, deposit, withdrawal, fund transfer and transaction history (mini project).","12. Face Recognition Attendance System using OpenCV or an online tool.","13. Student Record Management System using OOP, exception handling, file handling and SQLite/MySQL connectivity."]]
+]},
+{id:"wsn",name:"Wireless Sensor Networks Lab",short:"WSN Lab",type:"Practical",semester:"SY",code:"230GETB09_03",credits:"2",scheme:"Practical: 50 Marks · Oral: 50 Marks · Lecture: 1 · Tutorial: 2",prereq:"Programming in C / C++",color:"#55b7ff",
+objectives:["The uploaded lab syllabus specifies a minimum of ten experiments; separate course objectives are not listed."],
+outcomes:["The uploaded lab syllabus lists the practical experiments and evaluation scheme; separate course outcomes are not listed."],
+groups:[
+["A","Experiments",["1. Install NS-3 and Wireshark.","2. Create a point-to-point link between two nodes and echo a single packet.","3. Create a network consisting of point-to-point and CSMA nodes.","4. Simulate point-to-point links, CSMA nodes and a Wi-Fi network with access points and stations."]],
+["B","Experiments",["5. Construct a mobile ad-hoc network using a simulation tool.","6. Implement Ad-hoc On-demand Distance Vector (AODV) using a simulation tool.","7. Implement Transmission Control Protocol (TCP) using a simulation tool."]],
+["C","Experiments",["8. Implement User Datagram Protocol (UDP) using a simulation tool.","9. Simulate DSDV, AODV and DSR routing protocol performance over WSN.","10. Case study on WSN in the agriculture sector."]]
+],resources:["WSN Virtual Lab: http://vlabs.iitkgp.ac.in/ant/8/","NS-3: https://www.nsnam.org/"]},
+{id:"sa",name:"Sensors and Actuators",short:"MMC 2 · S&A",type:"Practical",semester:"SY",code:"230GMTB01_4",credits:"2",scheme:"Lecture: 1 · Practical: 2 · Practical: 50 · Oral: 50",prereq:"Basic Electronics; Basic Electrical Engineering",color:"#ffb36b",
+objectives:["Study measurement of physical variables using sensors.","Study various kinds of actuators.","Introduce technologies related to Industry 4.0.","Prepare learners for careers in industrial automation."],
+outcomes:["Understand and apply sensor concepts using development hardware.","Understand and interface Arduino (ATmega328P) for real-world applications.","Interface optical sensors with development hardware.","Interface temperature sensors with development hardware.","Interface ultrasonic and gas sensors with development hardware.","Understand and interface different actuators for real-world applications."],
+units:[
+["I","Fundamentals of Sensors and Characteristics","3 Hours",["Instrumentation and sensors; significance of sensor measurements","Classification of sensors based on domain, technology and operation","Static characteristics: range, resolution, sensitivity, error, repeatability, linearity, accuracy, impedance, backlash, response time and dead band","Dynamic characteristics: sensor bandwidth and frequency response","Selection of sensors and actuators: power requirements, specifications, environmental conditioning and industrial requirements"]],
+["II","Arduino UNO and Basic Electronics Components","2 Hours",["Arduino introduction, pin configuration, features and applications","Software and driver tools; GPIO programming","Resistors: voltage division, current-limiting, pull-up, pull-down and variable resistors","Capacitor, inductor, LED, battery, breadboard and Printed Circuit Board (PCB)"]],
+["III","Optical Sensors and Interfacing","2 Hours",["Light Dependent Resistor (LDR): working, interfacing and applications","Infrared (IR) sensor: working, interfacing and applications","Passive Infrared (PIR) sensor: working, interfacing and applications"]],
+["IV","Temperature and Pressure Sensors and Interfacing","3 Hours",["Electrical methods of temperature measurement","Resistance thermometers, thermistors, thermocouples, pyrometers and thermal cameras","LM35: working principles, interfacing and applications","DHT11: working principles, interfacing and applications","Pressure measurement: microphones and pressure sensors — working and applications"]],
+["V","Ultrasonic and Gas Sensors and Interfacing","2 Hours",["Ultrasonic sensor: working principles, interfacing and applications","Ultrasonic flow meter","Gas sensor types, working principles, interfacing and applications"]],
+["VI","Actuating Systems and Interfacing","3 Hours",["DC motors: review, modelling of behaviour, servo amplifier and DC motor drive","DC servo motors and interfacing","Stepper motor characteristics, classification and principle of operation","Step angle, electrical model of energized coil, drive methods, performance and interfacing","Relay types, working principles, interfacing and applications"]]
+],
+groups:[["A","Lab Experiments",["1. Introduction to TINKERCAD software and basic electronic components.","2. Arduino IDE installation and programming concepts.","3. LED blinking using Arduino UNO (Digital Write).","4. Control LED using push button with Arduino UNO (Digital Read).","5. Interface potentiometer with Arduino UNO (Analog Read).","6. Smart lighting system using LDR and Arduino UNO."]],["B","Lab Experiments",["7. Motion detection using PIR sensor and Arduino UNO.","8. Temperature measurement using thermistor / LM35 / DHT11 and Arduino UNO.","9. Distance measurement using SR-04 and Arduino UNO.","10. Gas detection using MQ135 / MQ2 and Arduino UNO."]],["C","Lab Experiments",["11. SG-90 servo motor control using Arduino UNO.","12. Home-appliance control using relay and Arduino UNO.","13. DC motor control using Arduino UNO.","14. Mini-project implementation using Arduino UNO."]]]
+}
+];
+
+const nav=document.getElementById('nav'), theoryGrid=document.getElementById('theoryGrid'), practicalGrid=document.getElementById('practicalGrid'), details=document.getElementById('details');
+const search=document.getElementById('search'), typeFilter=document.getElementById('typeFilter'), semFilter=document.getElementById('semesterFilter');
+let selected=null, activeTab='units';
+const allUnits=c=>c.units?.length||c.groups?.length||0;
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function renderNav(){nav.innerHTML=courses.map(c=>`<button data-id="${c.id}" onclick="selectCourse('${c.id}')"><span>◈</span>${esc(c.short)}<span class="num">${allUnits(c)}</span></button>`).join('')}
+function searchable(c){return JSON.stringify(c).toLowerCase()}
+function renderGrid(){
+ const q=search.value.toLowerCase().trim(), typ=typeFilter.value, sem=semFilter.value;
+ const list=courses.filter(c=>(typ==='all'||c.type===typ)&&(sem==='all'||c.semester===sem)&&(q===''||searchable(c).includes(q)));
+ const card=c=>`<article class="course" style="--tint:${c.color}" onclick="selectCourse('${c.id}')"><div class="course-top"><span class="tag">${esc(c.type==='Mixed'?'Theory + Practical':c.type)} · ${esc(c.semester==='SY'?'S.Y. B.Tech':'SEM '+c.semester)}</span><span class="tag">${esc(c.credits)} credits</span></div><h3>${esc(c.name)}</h3><div class="meta">${esc(c.code)} · ${esc(c.scheme.split('·')[0])}</div><div class="course-bottom"><span>${allUnits(c)} syllabus sections</span><span class="open">View syllabus →</span></div></article>`;
+ const theory=list.filter(c=>c.type==='Theory'||c.type==='Mixed');
+ const practical=list.filter(c=>c.type==='Practical');
+ theoryGrid.innerHTML=theory.map(card).join('');
+ practicalGrid.innerHTML=practical.map(card).join('');
+ document.getElementById('empty').style.display=list.length?'none':'block';
+ document.getElementById('theoryCount').textContent=`${theory.length} subjects`;
+ document.getElementById('practicalCount').textContent=`${practical.length} subjects`;
+ theoryGrid.style.display=theory.length?'grid':'none';
+ practicalGrid.style.display=practical.length?'grid':'none';
+}
+function unitMarkup(c){
+ const units=c.units||[], groups=c.groups||[];
+ return (units.length?units.map((u,i)=>unitCard(c,`unit-${i}`,'UNIT',u[1],u[2],u[3])):[])
+ .concat(groups.map((g,i)=>unitCard(c,`group-${i}`,'PRACTICAL WORK',g[1],`${g[2].length} listed activities`,g[2]))).join('');
+}
+function unitCard(c,id,title,name,hours,topics){
+ const key=`${c.id}-${id}`;
+ return `<details class="unit"><summary><span class="tag">${esc(title)}</span><span class="unitname">${esc(name)}</span><span class="hours">${esc(hours)}</span></summary><div class="unitbody"><ul class="topiclist">${topics.map((t,i)=>`<li><label class="checkrow"><input type="checkbox" data-key="${esc(key+'-'+i)}" onchange="updateProgress()"><span>${esc(t.replace(/^\s*(?:\d+\s*(?:\([a-zA-Z]\))?\.?|[a-zA-Z]\))\s*/,''))}</span></label></li>`).join('')}</ul></div></details>`;
+}
+function selectCourse(id){
+ selected=courses.find(c=>c.id===id);activeTab='units';renderDetail();
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.id===id));
+ details.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function renderDetail(){
+ const c=selected;if(!c)return;
+ details.classList.remove('hidden');
+ details.innerHTML=`<div class="detailhead"><div class="tag">${esc(c.type)} · ${esc(c.semester==='SY'?'S.Y. B.Tech':'SEMESTER '+c.semester)}</div><h2>${esc(c.name)}</h2><div class="detailmeta">${esc(c.code)} &nbsp;·&nbsp; ${esc(c.credits)} credits &nbsp;·&nbsp; ${esc(c.scheme)}</div><div class="chips"><span class="chip">Course code: ${esc(c.code)}</span><span class="chip">${esc(c.prereq)}</span></div></div>
+ <div class="tabs"><button class="tab ${activeTab==='units'?'active':''}" onclick="setTab('units')">${c.groups&&!c.units?'Lab experiments':'Course contents'}</button><button class="tab ${activeTab==='objectives'?'active':''}" onclick="setTab('objectives')">Objectives & outcomes</button><button class="tab ${activeTab==='resources'?'active':''}" onclick="setTab('resources')">Resources & notes</button></div>
+ <div id="tabContent">${tabContent(c)}</div>`;
+ restoreChecks();
+}
+function setTab(t){activeTab=t;renderDetail()}
+function tabContent(c){
+ if(activeTab==='units')return `<div class="sectionhead"><div><h2>${c.units?'Unit-wise syllabus':'Laboratory experiments'}</h2><p>Expand each section and tick topics as you complete them.</p></div><button class="btn" onclick="expandAll(true)">Expand all</button></div>${unitMarkup(c)}`;
+ if(activeTab==='objectives')return `<div class="cols"><div class="contentbox"><h3>Course objectives</h3>${(c.objectives||[]).map(x=>`<p class="checkrow">• <span>${esc(x)}</span></p>`).join('')}</div><div class="contentbox"><h3>Course outcomes</h3>${(c.outcomes||[]).map((x,i)=>`<p class="checkrow"><b>CO${i+1}:</b>&nbsp;<span>${esc(x)}</span></p>`).join('')}</div></div>`;
+ return `<div class="contentbox"><h3>Course information</h3><p><b>Prerequisites:</b> ${esc(c.prereq)}</p><p><b>Evaluation / teaching scheme:</b> ${esc(c.scheme)}</p>${(c.resources||[]).map(r=>`<p>${esc(r)}</p>`).join('')}<p class="muted">Learning resources and reference lists are reproduced only where present in the uploaded syllabus text. Consult the original PDF for full bibliography and formatting details.</p></div>`;
+}
+function expandAll(open){document.querySelectorAll('#tabContent details').forEach(d=>d.open=open)}
+const PROGRESS_KEY='jspm_syllabus_progress_v1';
+let progressData={};
+function loadProgress(){
+ try{
+  const raw=localStorage.getItem(PROGRESS_KEY);
+  progressData=raw?JSON.parse(raw):{};
+  if(!progressData||typeof progressData!=='object'||Array.isArray(progressData))progressData={};
+  // One-time migration from the earlier per-topic storage format.
+  if(!raw){
+   for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k&&k.startsWith('syllabus:')&&localStorage.getItem(k)==='1')progressData[k.slice(9)]=true;
+   }
+   saveProgress();
+  }
+  return true;
+ }catch(err){
+  setSaveStatus('Storage unavailable — use the same browser or localhost','error');
+  return false;
+ }
+}
+function saveProgress(){
+ try{
+  localStorage.setItem(PROGRESS_KEY,JSON.stringify(progressData));
+  setSaveStatus('● Progress saved locally','ok');
+  return true;
+ }catch(err){
+  setSaveStatus('Could not save — browser storage blocked','error');
+  return false;
+ }
+}
+function setSaveStatus(message,state){
+ const el=document.getElementById('saveStatus');
+ if(el){el.textContent=message;el.style.color=state==='error'?'#ffe0a6':'#e8fff8';}
+}
+function restoreChecks(){
+ document.querySelectorAll('[data-key]').forEach(el=>{el.checked=progressData[el.dataset.key]===true;});
+ updateStats();
+}
+function updateProgress(){
+ document.querySelectorAll('[data-key]').forEach(el=>{
+  if(el.checked)progressData[el.dataset.key]=true;
+  else delete progressData[el.dataset.key];
+ });
+ saveProgress();
+ updateStats();
+}
+function updateStats(){
+ let total=0;
+ courses.forEach(c=>{(c.units||[]).forEach(u=>total+=u[3].length);(c.groups||[]).forEach(g=>total+=g[2].length)});
+ const saved=Object.values(progressData).filter(Boolean).length;
+ document.getElementById('progressCount').textContent=(total?Math.round(saved/total*100):0)+'%';
+ document.getElementById('topicCount').textContent=total;
+}
+function resetProgress(){
+ if(confirm('Clear all saved syllabus progress in this browser?')){
+  progressData={};saveProgress();
+  document.querySelectorAll('[data-key]').forEach(x=>x.checked=false);
+  updateStats();
+ }
+}
+window.addEventListener('beforeunload',saveProgress);
+search.addEventListener('input',renderGrid);typeFilter.addEventListener('change',renderGrid);semFilter.addEventListener('change',renderGrid);
+loadProgress();renderNav();renderGrid();document.getElementById('courseCount').textContent=courses.length;document.getElementById('unitCount').textContent=courses.reduce((n,c)=>n+allUnits(c),0);updateStats();
+</script>
+</body></html>
